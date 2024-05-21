@@ -14,7 +14,7 @@ require 'custom.config.keymaps'
 require('lazy').setup({
   { import = 'custom.plugins' },
   { import = 'kickstart.plugins.indent_line' },
-  -- { import = 'kickstart.plugins.debug' },
+  { import = 'kickstart.plugins.debug' },
   -- { import = 'kickstart.plugins.lint' },
   { import = 'kickstart.plugins.autopairs' },
   { import = 'kickstart.plugins.neo-tree' },
