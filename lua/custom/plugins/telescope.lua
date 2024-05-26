@@ -21,6 +21,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'nvim-telescope/telescope-file-browser.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -48,15 +49,38 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
-      -- pickers = {}
+      defaults = {
+        wrap_results = true,
+        layout_strategy = 'horizontal',
+        layout_config = { prompt_position = 'top' },
+        sorting_strategy = 'ascending',
+        windblend = 0,
+        mappings = {
+          n = {},
+        },
+      },
+      pickers = {
+        diagnostics = {
+          theme = 'ivy',
+          initial_mode = 'normal',
+          layout_config = {
+            preview_cutoff = 9999,
+          },
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
+        },
+        file_browser = {
+          theme = 'dropdown',
+          -- disables netw and use telescope file browser in its place
+          hijack_netrw = true,
+          mappings = {
+            ['n'] = {
+              -- your custom normal mode mappings
+            },
+          },
         },
       },
     }
@@ -64,6 +88,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'file-browser')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -77,6 +102,23 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', ';r', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', ';s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', ';;', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', 'sf', function()
+      local telescope = require 'telescope'
+      local function telescope_buffer_dir()
+        return vim.fn.expand '%:p:h'
+      end
+
+      telescope.extensions.file_browser.file_browser {
+        path = '%:p:h',
+        cwd = telescope_buffer_dir(),
+        respect_gitignore = false,
+        hidden = true,
+        grouped = true,
+        previewer = true,
+        initial_mode = 'normal',
+        layout_config = { height = 50 },
+      }
+    end)
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
