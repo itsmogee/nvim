@@ -30,7 +30,7 @@ return -- lazy.nvim
         enabled = true,
         format = 'lsp_progress',
         format_done = 'lsp_progress_done',
-        view = 'notify',
+        view = 'mini',
       },
     }, -- add any options here
     -- you can enable a preset for easier configuration
