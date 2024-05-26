@@ -10,5 +10,25 @@ return {
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    -- setup keymaps for todo-comments
+    config = function()
+      vim.keymap.set('n', ']t', function()
+        require('todo-comments').jump_next()
+      end, { desc = 'Next todo comment' })
+
+      vim.keymap.set('n', '[t', function()
+        require('todo-comments').jump_prev()
+      end, { desc = 'Previous todo comment' })
+    end,
+  },
 }
+
+--TODO:
+--PERFORMANCE:
+--BUG:
+--NOTE:
+--TEST:
+--WARN:
+--HACK:
