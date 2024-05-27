@@ -36,7 +36,8 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 keymap.set('n', 'ss', ':split<CR>')
 keymap.set('n', 'sv', ':vsplit<CR>')
 
--- Diagnostics
--- keymap.set('n', '<C-j>', function()
---   vim.diagnostic.goto_next()
--- end)
+--Tab commands
+keymap.set('n', 'te', ':tabedit<Return>', opts)
+keymap.set('n', '<tab>', ':tabnext<Return>', opts)
+keymap.set('n', '<s-tab>', ':tabprev<Return>', opts)
+keymap.set('n', 'tx', ':tabclose<Return>', opts)
