@@ -133,6 +133,7 @@ return { -- LSP Configuration & Plugins
           -- This may be unwanted, since they displace some of your code
           if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
             map('<leader>th', function()
+              ---@diagnostic disable-next-line: missing-parameter
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, '[T]oggle Inlay [H]ints')
           end
@@ -193,6 +194,29 @@ return { -- LSP Configuration & Plugins
       --
       --  You can press `g?` for help in this menu.
       require('mason').setup()
+      local cmp = require 'cmp'
+
+      cmp.setup {
+        mapping = {
+
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            local status_ok, luasnip = pcall(require, 'luasnip')
+            if status_ok and luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            local status_ok, luasnip = pcall(require, 'luasnip')
+            if status_ok and luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        },
+      }
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
