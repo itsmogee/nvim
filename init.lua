@@ -9,6 +9,7 @@ vim.opt.rtp:prepend(lazypath)
 --NOTE: Load vim options before loading lazy
 require 'custom.config.options'
 require 'custom.config.keymaps'
+require 'custom.config.autocmds'
 
 -- NOTE: Here is where you can install your plugins.
 require('lazy').setup({
