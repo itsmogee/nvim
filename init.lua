@@ -13,7 +13,9 @@ require 'custom.config.autocmds'
 
 -- NOTE: Here is where you can install your plugins.
 require('lazy').setup({
-  { import = 'custom.plugins' },
+  { import = 'custom.plugins.Utils' },
+  { import = 'custom.plugins.UI' },
+  { import = 'custom.plugins.Coding' },
   { import = 'kickstart.plugins.indent_line' },
   { import = 'kickstart.plugins.debug' },
   -- { import = 'kickstart.plugins.lint' },
