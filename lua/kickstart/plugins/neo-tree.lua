@@ -14,5 +14,7 @@ return {
     { '<C-n>', ':Neotree toggle<CR>', { desc = 'NeoTree reveal' } },
   },
   opts = {},
+  config = {
+    popup_border_style = 'rounded',
   },
 }
