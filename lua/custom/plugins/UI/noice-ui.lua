@@ -25,6 +25,7 @@ return -- lazy.nvim
             { find = '%d+L, %d+B' },
             { find = '; after #%d+' },
             { find = '; before #%d+' },
+            { find = 'DB: Query' },
           },
         },
         view = 'mini',
