@@ -48,3 +48,10 @@ keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
 -- Increment / Decrement
 keymap.set('n', '<leader>.', '<C-a>', { desc = 'Increment a number' })
 keymap.set('n', '<leader>,', '<C-x>', { desc = 'Decrement a number' })
+
+-- Window management
+keymap.set('n', '=', '<cmd>vertical resize +10<cr>', { desc = 'Increase window height' })
+keymap.set('n', '-', '<cmd>vertical resize -10<cr>', { desc = 'Decrease window height' })
+keymap.set('n', '+', '<cmd>horizontal resize +10<cr>', { desc = 'Increade window width' })
+keymap.set('n', '_', '<cmd>horizontal resize -10<cr>', { desc = 'Decrease window width' })
+keymap.set('n', 's=', '<C-w>=', { desc = 'Make splits equal size' })
