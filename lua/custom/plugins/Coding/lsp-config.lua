@@ -199,7 +199,7 @@ return { -- LSP Configuration & Plugins
       cmp.setup {
         mapping = {
 
-          ['<Tab>'] = cmp.mapping(function(fallback)
+          ['<C-n>'] = cmp.mapping(function(fallback)
             local status_ok, luasnip = pcall(require, 'luasnip')
             if status_ok and luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
@@ -207,7 +207,7 @@ return { -- LSP Configuration & Plugins
               fallback()
             end
           end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
+          ['<C-p'] = cmp.mapping(function(fallback)
             local status_ok, luasnip = pcall(require, 'luasnip')
             if status_ok and luasnip.jumpable(-1) then
               luasnip.jump(-1)
