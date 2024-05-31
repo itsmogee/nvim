@@ -44,3 +44,7 @@ keymap.set('n', 'tx', ':tabclose<Return>', opts)
 
 -- Remap exit insert mode
 keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
+
+-- Increment / Decrement
+keymap.set('n', '<leader>.', '<C-a>', { desc = 'Increment a number' })
+keymap.set('n', '<leader>,', '<C-x>', { desc = 'Decrement a number' })
