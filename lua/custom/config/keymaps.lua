@@ -41,3 +41,6 @@ keymap.set('n', 'te', ':tabedit<Return>', opts)
 keymap.set('n', '<tab>', ':tabnext<Return>', opts)
 keymap.set('n', '<s-tab>', ':tabprev<Return>', opts)
 keymap.set('n', 'tx', ':tabclose<Return>', opts)
+
+-- Remap exit insert mode
+keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
