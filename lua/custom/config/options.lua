@@ -3,6 +3,8 @@ vim.cmd 'set tabstop=2'
 vim.cmd 'set softtabstop=2'
 vim.cmd 'set shiftwidth=2'
 
+local opt = vim.opt
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -36,6 +38,7 @@ vim.opt.wrap = false
 vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
+opt.autoindent = true
 vim.opt.breakindent = true
 
 -- Save undo history
@@ -79,3 +82,6 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+-- Remove squiggly lines
+opt.fillchars:append { eob = ' ' }
