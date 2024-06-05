@@ -221,9 +221,7 @@ return { -- LSP Configuration & Plugins
         'prettier',
         'black',
         'isort',
-        'sql-formatter',
-        'sqlfmt',
-        'sqlfluff',
+        'sqls',
         -- 'codespell', -- Used to check for common spelling errors
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
