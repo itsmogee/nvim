@@ -17,6 +17,11 @@ return {
     config = function()
       require('gruvbox').setup {
         transparent_mode = true,
+        overrides = {
+          DiffAdd = { fg = '#b8bb26', bg = 'None' },
+          DiffChange = { fg = '#83a598', bg = 'None' },
+          DiffDelete = { fg = '#fb4934', bg = 'None' },
+        },
       }
     end,
   },
