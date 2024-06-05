@@ -16,10 +16,6 @@ return { -- LSP Configuration & Plugins
       { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
-      -- Brief aside: **What is LSP?**
-      --
-      -- LSP is an initialism you've probably heard, but might not understand what it is.
-      --
       -- LSP stands for Language Server Protocol. It's a protocol that helps editors
       -- and language tooling communicate in a standardized fashion.
       --
@@ -167,8 +163,7 @@ return { -- LSP Configuration & Plugins
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
-        --
+        tsserver = {},
 
         eslint_d = {},
         lua_ls = {
@@ -226,6 +221,9 @@ return { -- LSP Configuration & Plugins
         'prettier',
         'black',
         'isort',
+        'sql-formatter',
+        'sqlfmt',
+        'sqlfluff',
         -- 'codespell', -- Used to check for common spelling errors
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

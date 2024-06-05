@@ -23,8 +23,13 @@ return { -- Autoformat
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
+    formatters = {
+      sql_formatter = {},
+    },
     formatters_by_ft = {
       lua = { 'stylua' },
+      sql = { 'sqlfmt' },
+      mysql = { 'sqlfmt' },
       -- ['*'] = { 'codespell' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
@@ -33,5 +38,8 @@ return { -- Autoformat
       -- is found.
       -- javascript = { { "prettierd", "prettier" } },
     },
+    vim.keymap.set({ 'n', 'v' }, ',fc', function()
+      require('conform').format { async = true, lsp_fallback = false }
+    end),
   },
 }
