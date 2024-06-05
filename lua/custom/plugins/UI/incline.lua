@@ -75,7 +75,7 @@ return {
       require('incline').setup {
         highlight = {
           groups = {
-            InclineNormal = { guibg = colors.dark_aqua_hard, guifg = colors.light0 },
+            InclineNormal = { guibg = colors.dark0_hard, guifg = colors.light0 },
             InclineNormalNC = { guibg = 'None', guifg = colors.light0 },
           },
         },
@@ -106,7 +106,7 @@ return {
               end
             end
             if #labels > 0 then
-              table.insert(labels, { '┊ ', guifg = colors.bright_aqua })
+              table.insert(labels, { '󰇝 ', guifg = colors.light0 })
             end
 
             -- if #labels > 0 then
@@ -126,7 +126,7 @@ return {
               end
             end
             if #label > 0 then
-              table.insert(label, { '┊ ', guifg = colors.bright_aqua })
+              table.insert(label, { '󰇝 ', guifg = colors.light0 })
             end
             return label
           end
@@ -135,9 +135,10 @@ return {
             { get_diagnostic_label() },
             { get_git_diff() },
             -- { get_mini_diff() },
-            { (ft_icon or '') .. ' ', guifg = colors.bright_aqua, guibg = 'none' },
-            { filename .. ' ', gui = modified, guifg = colors.bright_aqua },
-            { '┊  ' .. vim.api.nvim_win_get_number(props.win), guifg = colors.bright_aqua },
+            { (ft_icon or '') .. ' ', guifg = colors.bright_yellow, guibg = 'none' },
+            { filename .. ' ', gui = modified, guifg = colors.bright_yellow },
+            { '󰇝 ', guifg = colors.light0 },
+            { ' ' .. vim.api.nvim_win_get_number(props.win), guifg = colors.bright_purple },
           }
           return buffer
         end,
