@@ -9,11 +9,11 @@ return { -- LSP Configuration & Plugins
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/neodev.nvim',       opts = {} },
+      { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
       -- LSP stands for Language Server Protocol. It's a protocol that helps editors
@@ -164,7 +164,7 @@ return { -- LSP Configuration & Plugins
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         tsserver = {},
-
+        sqls = {},
         eslint_d = {},
         lua_ls = {
           -- cmd = {...},
@@ -221,6 +221,7 @@ return { -- LSP Configuration & Plugins
         'prettier',
         'black',
         'isort',
+        'sql-formatter',
         -- 'codespell', -- Used to check for common spelling errors
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -236,6 +237,22 @@ return { -- LSP Configuration & Plugins
             require('lspconfig')[server_name].setup(server)
           end,
         },
+      }
+
+      local lspconfig = require 'lspconfig'
+      lspconfig.sqls.setup {
+        on_attach = function(client, bufnr)
+          -- HACK: in nvim 0.9+, lspconfig will set &tagfunc to vim.lsp.tagfunc
+          -- automatically. For lsp that does not support workspace symbol, this
+          -- function may cause conflict because `cmp-nvim-tags` which uses tags to
+          -- search workspace symbol, leading to an error when `vim.lsp.tagfunc` is
+          -- called. To prev ent this behavior, we disable it.
+          vim.bo.tagfunc = nil
+
+          -- The document formatting implementation of sqls is buggy.
+          client.server_capabilities.documentFormattingProvider = false
+        end,
+        capabilities = capabilities,
       }
     end,
   },
