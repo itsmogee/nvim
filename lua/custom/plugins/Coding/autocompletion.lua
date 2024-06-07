@@ -69,8 +69,8 @@ return { -- Autocompletion
         ['<C-p>'] = cmp.mapping.select_prev_item(),
 
         -- Scroll the documentation window [b]ack / [f]orward
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-3),
+        ['<C-f>'] = cmp.mapping.scroll_docs(3),
 
         -- Accept ([y]es) the completion.
         --  This will auto-import if your LSP supports it.
