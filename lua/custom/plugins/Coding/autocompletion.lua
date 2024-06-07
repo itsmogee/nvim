@@ -73,31 +73,25 @@ return { -- Autocompletion
         --  This will expand snippets if the LSP sent a snippet.
         ['<CR>'] = cmp.mapping.confirm { select = true },
 
-        ['<Tab>'] = cmp.mapping(function(fallback)
+        ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             cmp.select_next_item()
-          elseif vim.snippet.active { direction = 1 } then
-            vim.schedule(function()
-              vim.snippet.jump(1)
-            end)
-          elseif has_words_before() then
-            cmp.complete()
+          elseif luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
           else
             fallback()
           end
-        end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif vim.snippet.active { direction = -1 } then
-            vim.schedule(function()
-              vim.snippet.jump(-1)
-            end)
+          elseif luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
           else
             fallback()
           end
-        end, { 'i', 's' }),
+        end, { "i", "s" }),
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines
         --['<CR>'] = cmp.mapping.confirm { select = true },
