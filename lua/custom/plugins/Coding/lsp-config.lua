@@ -192,28 +192,6 @@ return { -- LSP Configuration & Plugins
       require('mason').setup()
       local cmp = require 'cmp'
 
-      cmp.setup {
-        mapping = {
-
-          ['<C-n>'] = cmp.mapping(function(fallback)
-            local status_ok, luasnip = pcall(require, 'luasnip')
-            if status_ok and luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-          ['<C-p'] = cmp.mapping(function(fallback)
-            local status_ok, luasnip = pcall(require, 'luasnip')
-            if status_ok and luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-        },
-      }
-
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
