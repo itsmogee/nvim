@@ -1,6 +1,6 @@
 return { -- Autocompletion
   'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  event = 'VeryLazy',
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
     {
@@ -140,6 +140,17 @@ return { -- Autocompletion
         { name = 'luasnip' },
         { name = 'path' },
       },
+      enabled = function()
+        -- disable completion in comments
+        local context = require("cmp.config.context")
+        -- keep command mode completion enabled when cursor is in a comment
+        if vim.api.nvim_get_mode().mode == 'c' then
+          return true
+        else
+          return not context.in_treesitter_capture("comment")
+              and not context.in_syntax_group("Comment")
+        end
+      end,
     }
     cmp.setup.filetype({ 'sql', 'mysql' }, {
       sources = {
