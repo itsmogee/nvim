@@ -29,7 +29,7 @@ return {
     -- Set menu
     dashboard.section.buttons.val = {
       -- dashboard.button("SPC j", "󰈚   Restore Session", ":SessionRestore<cr>"),
-      dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
+      dashboard.button('e', '   New file', ':ene <BAR> startinsert <CR>'),
       dashboard.button('f', '   Find file', ': Telescope find_files<CR>'),
       dashboard.button('s', '󰦛   Restore', ":lua require('persistence').load() <cr>"),
       dashboard.button('g', '󰱼   Find word', ':Telescope live_grep<CR>'),
