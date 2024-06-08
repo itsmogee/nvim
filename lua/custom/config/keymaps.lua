@@ -55,3 +55,6 @@ keymap.set('n', '-', '<cmd>vertical resize -10<cr>', { desc = 'Decrease window h
 keymap.set('n', '+', '<cmd>horizontal resize +10<cr>', { desc = 'Increade window width' })
 keymap.set('n', '_', '<cmd>horizontal resize -10<cr>', { desc = 'Decrease window width' })
 keymap.set('n', 's=', '<C-w>=', { desc = 'Make splits equal size' })
+
+-- Alpha Dashboard
+keymap.set('n', '<leader>a', ':Alpha<CR>', { desc = 'Alpha Dashboard' })
