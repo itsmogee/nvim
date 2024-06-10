@@ -45,6 +45,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
+    local action_layout = require("telescope.actions.layout")
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
@@ -56,7 +57,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
         sorting_strategy = 'ascending',
         windblend = 0,
         mappings = {
-          n = {},
+          n = {
+            ["<M-p>"] = action_layout.toggle_preview
+          },
+          i = {
+            ["<M-p>"] = action_layout.toggle_preview
+          },
         },
       },
       pickers = {
