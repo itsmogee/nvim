@@ -21,6 +21,12 @@ return {
           DiffAdd = { fg = '#b8bb26', bg = 'None' },
           DiffChange = { fg = '#83a598', bg = 'None' },
           DiffDelete = { fg = '#fb4934', bg = 'None' },
+          ['@markup.heading.1.markdown'] = { fg = '#fb4934', bg = 'None', bold = true },
+          ['@markup.heading.2.markdown'] = { fg = '#fe8019', bg = 'None', bold = true },
+          ['@markup.heading.3.markdown'] = { fg = '#d3869b', bg = 'None', bold = true },
+          ['@markup.heading.4.markdown'] = { fg = '#8ec07c', bg = 'None', bold = true },
+          ['@markup.heading.5.markdown'] = { fg = '#83a598', bg = 'None', bold = true },
+          ['@markup.heading.6.markdown'] = { fg = '#b8bb26', bg = 'None', bold = true },
         },
       }
     end,
