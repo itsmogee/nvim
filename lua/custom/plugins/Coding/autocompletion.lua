@@ -26,7 +26,8 @@ return { -- Autocompletion
         },
       },
     },
-    'saadparwaiz1/cmp_luasnip',
+    { 'saadparwaiz1/cmp_luasnip', },
+    { "petertriho/cmp-git",       opts = {} },
 
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split

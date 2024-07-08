@@ -58,3 +58,13 @@ keymap.set('n', 's=', '<C-w>=', { desc = 'Make splits equal size' })
 
 -- Alpha Dashboard
 keymap.set('n', '<leader>a', ':Alpha<CR>', { desc = 'Alpha Dashboard' })
+
+-- Obsidian Keymaps
+-- keymap.set('n', '<leader>oc', "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = 'Toggle Checkbox' })
+-- keymap.set('n', '<leader>ot', '<cmd>ObsidianTemplate<CR>', { desc = 'Insert Obsidian Template' })
+-- keymap.set('n', '<leader>oo', '<cmd>ObsidianOpen<CR>', { desc = 'Open in Obsidian App' })
+-- keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<CR>', { desc = 'Show Obsidian Backlinks' })
+-- keymap.set('n', '<leader>ol', '<cmd>ObsidianLinks<CR>', { desc = 'Show Obsidian Links' })
+-- keymap.set('n', '<leader>on', '<cmd>ObsidianNew<CR>', { desc = 'Create New Note' })
+-- keymap.set('n', '<leader>os', '<cmd>ObsidianSearch<CR>', { desc = 'Search Obsidian' })
+-- keymap.set('n', '<leader>oq', '<cmd>ObsidianQuickSwitch<CR>', { desc = 'Quick Switch' })
