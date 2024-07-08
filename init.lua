@@ -18,7 +18,7 @@ require('lazy').setup({
   { import = 'custom.plugins.Coding' },
   { import = 'kickstart.plugins.indent_line' },
   { import = 'kickstart.plugins.debug' },
-  -- { import = 'kickstart.plugins.lint' },
+  { import = 'kickstart.plugins.lint' },
   { import = 'kickstart.plugins.autopairs' },
   { import = 'kickstart.plugins.neo-tree' },
   { import = 'kickstart.plugins.gitsigns' },
