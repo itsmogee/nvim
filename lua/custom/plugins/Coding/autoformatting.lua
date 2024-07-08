@@ -26,6 +26,15 @@ return { -- Autoformat
     formatters_by_ft = {
       sql = { 'sql_formatter' },
       mysql = { 'sql_formatter' },
+      html = { 'prettier' },
+      json = { 'prettier' },
+      angular = { 'prettier' },
+      javascript = { { 'prettier' } },
+      typescript = { { 'prettier' } },
+      python = { { "isort", "black" } },
+      markdown = { 'prettier' },
+      css = { 'prettier' },
+      lua = { 'stylua' },
       -- ['*'] = { 'codespell' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
