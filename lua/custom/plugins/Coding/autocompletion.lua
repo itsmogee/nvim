@@ -26,13 +26,14 @@ return { -- Autocompletion
         },
       },
     },
-    { 'saadparwaiz1/cmp_luasnip', },
-    { "petertriho/cmp-git",       opts = {} },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'petertriho/cmp-git',      opts = {} },
 
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
   },
   config = function()
@@ -74,7 +75,7 @@ return { -- Autocompletion
         --  This will expand snippets if the LSP sent a snippet.
         ['<CR>'] = cmp.mapping.confirm { select = true },
 
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.locally_jumpable(1) then
@@ -82,9 +83,9 @@ return { -- Autocompletion
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { 'i', 's' }),
 
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.locally_jumpable(-1) then
@@ -92,7 +93,7 @@ return { -- Autocompletion
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { 'i', 's' }),
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines
         --['<CR>'] = cmp.mapping.confirm { select = true },
@@ -132,12 +133,12 @@ return { -- Autocompletion
         { name = 'path' },
       },
       enabled = function()
-        local context = require("cmp.config.context")
+        local context = require 'cmp.config.context'
         local disabled = false
-        disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == "prompt")
-        disabled = disabled or (vim.fn.reg_recording() ~= "")
-        disabled = disabled or (vim.fn.reg_executing() ~= "")
-        disabled = disabled or context.in_treesitter_capture("comment")
+        disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+        disabled = disabled or (vim.fn.reg_recording() ~= '')
+        disabled = disabled or (vim.fn.reg_executing() ~= '')
+        disabled = disabled or context.in_treesitter_capture 'comment'
         return not disabled
       end,
     }
