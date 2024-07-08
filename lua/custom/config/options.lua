@@ -41,10 +41,15 @@ vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
 opt.autoindent = true
+opt.smartindent = true -- Insert indents automatically
 vim.opt.breakindent = true
+
+-- Language
+opt.spelllang = { 'en' }
 
 -- Save undo history
 vim.opt.undofile = true
+vim.opt.undodir = '~/.config/undoDir/'
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
@@ -87,3 +92,20 @@ vim.opt.hlsearch = true
 
 -- Remove squiggly lines
 opt.fillchars:append { eob = ' ' }
+
+-- Confirm save changes before exiting modified buffer
+opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.cursorline = false -- Enable highlighting of the current line
+
+opt.linebreak = true -- Wrap lines at convenient points
+
+-- save file with ctrl s
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+
+-- better indenting
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+
+-- highlights under cursor
+vim.keymap.set('n', '<leader>ui', vim.show_pos, { desc = 'Inspect Pos' })
+vim.keymap.set("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
