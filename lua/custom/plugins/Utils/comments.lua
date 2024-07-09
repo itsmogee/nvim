@@ -5,23 +5,26 @@ return {
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = true },
-  },
-  --  This is equivalent to:
-  --    require('Comment').setup({})
-
-  -- "gc" to comment visual regions/lines
-  {
-    'numToStr/Comment.nvim',
-    -- setup keymaps for todo-comments
-    config = function()
-      vim.keymap.set('n', ']t', function()
-        require('todo-comments').jump_next()
-      end, { desc = 'Next todo comment' })
-
-      vim.keymap.set('n', '[t', function()
-        require('todo-comments').jump_prev()
-      end, { desc = 'Previous todo comment' })
-    end,
+    keys = {
+      {
+        ']t',
+        function()
+          require('todo-comments').jump_next()
+        end,
+        desc = 'Next Todo Comment',
+      },
+      {
+        '[t',
+        function()
+          require('todo-comments').jump_prev()
+        end,
+        desc = 'Previous Todo Comment',
+      },
+      { '<leader>xt', '<cmd>Trouble todo toggle<cr>', desc = 'Todo (Trouble)' },
+      { '<leader>xT', '<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>', desc = 'Todo/Fix/Fixme (Trouble)' },
+      { '<leader>st', '<cmd>TodoTelescope<cr>', desc = 'Todo' },
+      { '<leader>sT', '<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>', desc = 'Todo/Fix/Fixme' },
+    },
   },
 }
 
