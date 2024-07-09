@@ -31,7 +31,6 @@ return { -- LSP Configuration & Plugins
           'biome',
           'html',
           'pyright',
-          'ltex',
           'rust_analyzer',
           'tailwindcss',
           'tsserver',

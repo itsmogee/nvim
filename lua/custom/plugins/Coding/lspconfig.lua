@@ -131,14 +131,6 @@ return {
       emmet_ls = {},
       pyright = {},
       marksman = {},
-      ltex = {
-        filetypes = {
-          'markdown',
-        },
-        settings = {
-          language = 'en-GB',
-        },
-      },
       rust_analyzer = {},
       sqls = {},
       lua_ls = {
