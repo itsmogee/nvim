@@ -4,18 +4,18 @@ return {
   'mfussenegger/nvim-lint',
   event = {
     'BufReadPre',
-    'BufNewFile'
+    'BufNewFile',
   },
   config = function()
     local lint = require 'lint'
 
     lint.linters_by_ft = {
-      html = { "htmlhint" },
-      markdown = { "markdownlint" },
-      typescript = { "biomejs", "eslint" },
-      javascript = { "biomejs", "eslint" },
-      typescriptreact = { "biomejs", "eslint" },
-      javascriptreact = { "biomejs", "eslint" },
+      html = { 'htmlhint' },
+      markdown = { 'markdownlint' },
+      typescript = { 'biomejs', 'eslint' },
+      javascript = { 'biomejs', 'eslint' },
+      typescriptreact = { 'biomejs', 'eslint' },
+      javascriptreact = { 'biomejs', 'eslint' },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
@@ -27,9 +27,8 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>ll", function()
+    vim.keymap.set('n', '<leader>ll', function()
       lint.try_lint()
-    end, { desc = "Trigger Linting for current file" })
+    end, { desc = 'Trigger Linting for current file' })
   end,
-
 }
