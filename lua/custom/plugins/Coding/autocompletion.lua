@@ -27,7 +27,7 @@ return { -- Autocompletion
       },
     },
     { 'saadparwaiz1/cmp_luasnip' },
-    { 'petertriho/cmp-git',      opts = {} },
+    { 'petertriho/cmp-git', opts = {} },
 
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
@@ -38,6 +38,7 @@ return { -- Autocompletion
   },
   config = function()
     -- See `:help cmp`
+    vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     local has_words_before = function()
@@ -131,6 +132,11 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+      },
+      experimental = {
+        ghost_text = {
+          hl_group = 'CmpGhostText',
+        },
       },
       enabled = function()
         local context = require 'cmp.config.context'
