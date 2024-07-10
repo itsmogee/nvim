@@ -1,12 +1,12 @@
 -- For plugins/markview.lua users
 return {
-  "OXY2DEV/markview.nvim",
-  enabled = false,
+  'OXY2DEV/markview.nvim',
+  enabled = true,
   dependencies = {
-    "nvim-tree/nvim-web-devicons", -- Used by the code bloxks
+    'nvim-tree/nvim-web-devicons', -- Used by the code bloxks
   },
 
   config = function()
-    require("markview").setup();
-  end
+    require('markview').setup()
+  end,
 }
