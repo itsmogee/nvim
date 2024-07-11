@@ -34,6 +34,7 @@ return { -- LSP Configuration & Plugins
           'rust_analyzer',
           'tailwindcss',
           'tsserver',
+          'jdtls',
           'cssls',
           'emmet_ls',
           'marksman',

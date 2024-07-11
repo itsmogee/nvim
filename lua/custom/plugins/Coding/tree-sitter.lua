@@ -15,6 +15,7 @@ return {
       'diff',
       'html',
       'lua',
+      'java',
       'luadoc',
       'markdown',
       'markdown_inline',

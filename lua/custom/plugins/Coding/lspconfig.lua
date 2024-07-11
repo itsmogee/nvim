@@ -173,6 +173,7 @@ return {
       marksman = {},
       rust_analyzer = {},
       sqls = {},
+      jdtls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -221,6 +222,8 @@ return {
       'codespell', -- Used to check for common spelling errors
       'pylint',
       'markdownlint',
+      'java-debug-adapter',
+      'java-test',
     })
     require('mason-tool-installer').setup {
       ensure_installed = ensure_installed,
@@ -230,12 +233,15 @@ return {
     require('mason-lspconfig').setup {
       handlers = {
         function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
+          -- Don't call setup for JDTLS Java LSP because it has its own way to attach to sessions
+          if server_name ~= 'jdtls' then
+            local server = servers[server_name] or {}
+            -- This handles overriding only values explicitly passed
+            -- by the server configuration above. Useful when disabling
+            -- certain features of an LSP (for example, turning off formatting for tsserver)
+            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            require('lspconfig')[server_name].setup(server)
+          end
         end,
       },
     }
