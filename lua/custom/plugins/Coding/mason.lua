@@ -39,6 +39,7 @@ return { -- LSP Configuration & Plugins
           'emmet_ls',
           'marksman',
           'sqls',
+          'clangd',
         },
 
         -- auto-install configured servers (with lspconfig)
