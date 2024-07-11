@@ -20,7 +20,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
-    { 'nvim-tree/nvim-web-devicons',               enabled = vim.g.have_nerd_font },
+    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     { 'nvim-telescope/telescope-file-browser.nvim' },
   },
   config = function()
@@ -45,23 +45,26 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
-    local action_layout = require("telescope.actions.layout")
+    local action_layout = require 'telescope.actions.layout'
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
       defaults = {
-        wrap_results = true,
+        wrap_results = false,
         layout_strategy = 'horizontal',
         layout_config = { prompt_position = 'top' },
         sorting_strategy = 'ascending',
         windblend = 0,
+        prompt_prefix = '󰆈 ',
+        selection_caret = ' ',
+        multi_icon = ' ',
         mappings = {
           n = {
-            ["<M-p>"] = action_layout.toggle_preview
+            ['<M-p>'] = action_layout.toggle_preview,
           },
           i = {
-            ["<M-p>"] = action_layout.toggle_preview
+            ['<M-p>'] = action_layout.toggle_preview,
           },
         },
       },
