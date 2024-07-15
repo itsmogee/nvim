@@ -23,6 +23,19 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     { 'nvim-telescope/telescope-file-browser.nvim' },
   },
+  keys = {
+    { ';t', '<cmd> Telescope help_tags <CR>', { desc = '[S]earch [H]elp' } },
+    { ';k', '<cmd> Telescope keymaps <CR>', { desc = '[S]earch [K]eymaps' } },
+    { ';f', '<cmd> Telescope find_files <CR>', { desc = '[S]earch [F]iles' } },
+    { ';h', '<cmd> Telescope highlights <CR>', { desc = '[S]earch [H]ighlights' } },
+    { '<leader>ss', '<cmd> Telescope builtin <CR>', { desc = '[S]earch [S]elect Telescope' } },
+    { '<leader>sw', '<cmd> Telescope grep_string <CR>', { desc = '[S]earch current [W]ord' } },
+    { ';g', '<cmd>Telescope live_grep <CR>', { desc = '[S]earch by [G]rep' } },
+    { '<leader>sd', '<cmd>Telescope diagnostics <CR>', { desc = '[S]earch [D]iagnostics' } },
+    { ';r', '<cmd>Telescope resume <CR>', { desc = '[S]earch [R]esume' } },
+    { ';s.', '<cmd>Telescope oldfiles <CR>', { desc = '[S]earch Recent Files ("." for repeat)' } },
+    { ';;', '<cmd>Telescope buffers <CR>', { desc = '[ ] Find existing buffers' } },
+  },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
     -- it can fuzzy find! It's more than just a "file finder", it can search
@@ -101,17 +114,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', ';t', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    vim.keymap.set('n', ';k', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-    vim.keymap.set('n', ';f', builtin.find_files, { desc = '[S]earch [F]iles' })
-    vim.keymap.set('n', ';h', builtin.highlights, { desc = '[S]earch [H]ighlights' })
-    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', ';g', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    vim.keymap.set('n', ';r', builtin.resume, { desc = '[S]earch [R]esume' })
-    vim.keymap.set('n', ';s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    vim.keymap.set('n', ';;', builtin.buffers, { desc = '[ ] Find existing buffers' })
     vim.keymap.set('n', 'sf', function()
       local telescope = require 'telescope'
       local function telescope_buffer_dir()
