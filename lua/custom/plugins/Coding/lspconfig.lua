@@ -321,7 +321,7 @@ return {
 
     lspconfig['clangd'].setup {
       clangd = function(_, opts)
-        require('clangd_extensions').setup(vim.tbl_deep_extend('force', {}, { server = opts }))
+        require('clangd_extensions').setup(vim.tbl_deep_extend('force', clangd_ext_opts or {}, { server = opts }))
         return false
       end,
     }
