@@ -84,7 +84,7 @@ return {
 
       map('a', function()
         require('dap').continue { before = get_args }
-      end, 'Run with Args')
+      end, 'Run with [A]rgs')
       map('C', function()
         require('dap').run_to_cursor()
       end, 'Run to Cursor')
@@ -142,8 +142,8 @@ return {
       }
 
       local dapicons = {
-        Stopped = { '󰁕 ', 'DiagnosticWarn', 'DapStoppedLine' },
-        Breakpoint = ' ',
+        Stopped = { '󰮯 ', 'DiagnosticWarn', 'DapStoppedLine' },
+        Breakpoint = ' ',
         BreakpointCondition = ' ',
         BreakpointRejected = { ' ', 'DiagnosticError' },
         LogPoint = '.>',
