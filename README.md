@@ -7,8 +7,6 @@ My other neovim configuration is by [LazyVim by Folke](https://www.lazyvim.org/)
 
 Alot of keymaps, plugins and functionality are inspired by [LazyVim by Folke](https://www.lazyvim.org/), this video guide by [DevAsLife](https://www.youtube.com/watch?v=fFHlfbKVi30), and this video playlist by [typecraft](https://www.youtube.com/watch?v=zHTeCSVAFNY&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn).
 
-# nvim/
-
 <a href="https://dotfyle.com/itsmogee/nvim"><img src="https://dotfyle.com/itsmogee/nvim/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/itsmogee/nvim"><img src="https://dotfyle.com/itsmogee/nvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/itsmogee/nvim"><img src="https://dotfyle.com/itsmogee/nvim/badges/plugin-manager?style=flat" /></a>
@@ -31,15 +29,23 @@ NVIM_APPNAME=itsmogee/nvim/ nvim
 
 ## Plugins
 
+### ai
+
+- [jackMort/ChatGPT.nvim](https://dotfyle.com/plugins/jackMort/ChatGPT.nvim)
+
+### color
+
+- [folke/twilight.nvim](https://dotfyle.com/plugins/folke/twilight.nvim)
+- [NvChad/nvim-colorizer.lua](https://dotfyle.com/plugins/NvChad/nvim-colorizer.lua)
+
 ### colorscheme
 
-- [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 - [sainnhe/gruvbox-material](https://dotfyle.com/plugins/sainnhe/gruvbox-material)
 - [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
+- [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 
 ### comment
 
-- [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 - [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 
 ### completion
@@ -50,11 +56,18 @@ NVIM_APPNAME=itsmogee/nvim/ nvim
 
 - [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
 - [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
+- [theHamsta/nvim-dap-virtual-text](https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text)
+
+### diagnostics
+
+- [folke/trouble.nvim](https://dotfyle.com/plugins/folke/trouble.nvim)
 
 ### editing-support
 
+- [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
 - [folke/zen-mode.nvim](https://dotfyle.com/plugins/folke/zen-mode.nvim)
 - [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
+- [shortcuts/no-neck-pain.nvim](https://dotfyle.com/plugins/shortcuts/no-neck-pain.nvim)
 - [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
 
 ### file-explorer
@@ -71,8 +84,12 @@ NVIM_APPNAME=itsmogee/nvim/ nvim
 
 ### git
 
+- [NeogitOrg/neogit](https://dotfyle.com/plugins/NeogitOrg/neogit)
+- [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
+- [ejrichards/baredot.nvim](https://dotfyle.com/plugins/ejrichards/baredot.nvim)
 - [kdheepak/lazygit.nvim](https://dotfyle.com/plugins/kdheepak/lazygit.nvim)
 - [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
+- [echasnovski/mini.diff](https://dotfyle.com/plugins/echasnovski/mini.diff)
 
 ### icon
 
@@ -89,9 +106,10 @@ NVIM_APPNAME=itsmogee/nvim/ nvim
 ### lsp
 
 - [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
+- [mfussenegger/nvim-jdtls](https://dotfyle.com/plugins/mfussenegger/nvim-jdtls)
+- [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 - [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
 - [smjonas/inc-rename.nvim](https://dotfyle.com/plugins/smjonas/inc-rename.nvim)
-- [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 
 ### lsp-installer
 
@@ -104,20 +122,34 @@ NVIM_APPNAME=itsmogee/nvim/ nvim
 ### markdown-and-latex
 
 - [iamcco/markdown-preview.nvim](https://dotfyle.com/plugins/iamcco/markdown-preview.nvim)
+- [OXY2DEV/markview.nvim](https://dotfyle.com/plugins/OXY2DEV/markview.nvim)
+- [MeanderingProgrammer/markdown.nvim](https://dotfyle.com/plugins/MeanderingProgrammer/markdown.nvim)
+
+### media
+
+- [3rd/image.nvim](https://dotfyle.com/plugins/3rd/image.nvim)
 
 ### motion
 
 - [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
 
+### note-taking
+
+- [epwalsh/obsidian.nvim](https://dotfyle.com/plugins/epwalsh/obsidian.nvim)
+
 ### nvim-dev
 
 - [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
-- [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
 - [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
+- [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
 
 ### plugin-manager
 
 - [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
+
+### search
+
+- [nvim-pack/nvim-spectre](https://dotfyle.com/plugins/nvim-pack/nvim-spectre)
 
 ### snippet
 
@@ -142,16 +174,34 @@ NVIM_APPNAME=itsmogee/nvim/ nvim
 
 - [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
 
+### terminal-integration
+
+- [akinsho/toggleterm.nvim](https://dotfyle.com/plugins/akinsho/toggleterm.nvim)
+
 ### utility
 
-- [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
 - [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
+- [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
+- [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
+- [kevinhwang91/nvim-ufo](https://dotfyle.com/plugins/kevinhwang91/nvim-ufo)
 - [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
 - [echasnovski/mini.animate](https://dotfyle.com/plugins/echasnovski/mini.animate)
 
 ## Language Servers
 
+- clangd
+- cssls
+- emmet_ls
+- eslint
 - html
-- tflint
+- jdtls
+- lua_ls
+- marksman
+- pyright
+- rust_analyzer
+- sqls
+- tailwindcss
+- tsserver
+- vtsls
 
 This readme was generated by [Dotfyle](https://dotfyle.com)
