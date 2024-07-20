@@ -3,6 +3,24 @@ return {
   event = 'VeryLazy',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true },
   config = function()
+    -- Function to check spelling status and determine background color
+    local function spell_status()
+      if vim.wo.spell then
+        return 'Spell: On'
+      else
+        return 'Spell: Off'
+      end
+    end
+
+    -- Function to determine the background color based on spelling status
+    local function spell_bg_color()
+      if vim.wo.spell then
+        return '#37f499' -- Green for spell on
+      else
+        return '#f16c75' -- Red for spell off
+      end
+    end
+
     require('lualine').setup {
       options = {
         theme = 'gruvbox-material',
@@ -17,30 +35,25 @@ return {
 
       sections = {
         lualine_x = {
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              -- color = function() return LazyVim.ui.fg("Statement") end,
-            },
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              -- color = function() return LazyVim.ui.fg("Constant") end,
-            },
-            -- stylua: ignore
-            {
-              function() return "  " .. require("dap").status() end,
-              cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-              -- color = function() return LazyVim.ui.fg("Debug") end,
-            },
-            -- stylua: ignore
-            {
-              require("lazy.status").updates,
-              cond = require("lazy.status").has_updates,
-              -- color = function() return LazyVim.ui.fg("Special") end,
-            },
+          {
+            spell_status,
+            color = function()
+              local fg_color = '#212337' -- Foreground color for the text
+              return { fg = fg_color, bg = spell_bg_color(), gui = 'bold' }
+            end,
+            separator = { left = '', right = '█ ' },
+            padding = 0,
+          },
+          {
+            function()
+              return '  ' .. require('dap').status()
+            end,
+            cond = function()
+              return package.loaded['dap'] and require('dap').status() ~= ''
+            end,
+            -- color = function() return LazyVim.ui.fg("Debug") end,
+          },
+          -- stylua: ignore
         },
         lualine_y = {
           { 'progress', separator = ' ', padding = { left = 1, right = 0 } },
