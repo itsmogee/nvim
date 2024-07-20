@@ -27,6 +27,7 @@ return { -- LSP Configuration & Plugins
     config = function()
       require('mason-lspconfig').setup {
         ensure_installed = {
+          'angularls',
           'lua_ls',
           'biome',
           'html',
