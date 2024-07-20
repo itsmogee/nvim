@@ -21,7 +21,17 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>w', group = 'Workspace' },
       { '<leader>t', group = 'Toggle' },
       { '<leader>h', group = 'Git Hunk', mode = { 'n', 'v' } },
+      -- spell check keys
+      {
+        'z?',
+        ':setlocal spell!<CR>',
+        desc = 'Toggle Spellcheck',
+      },
+      {
+        'zl',
+        ':Telescope spell_suggest<CR>',
+        desc = 'List Spelling Suggestions Telescope',
+      },
     }
-    -- visual mode
   end,
 }
