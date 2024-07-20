@@ -44,6 +44,8 @@ opt.autoindent = true
 opt.smartindent = true -- Insert indents automatically
 vim.opt.breakindent = true
 
+vim.opt.textwidth = 80
+
 -- Language
 opt.spelllang = { 'en' }
 
@@ -108,4 +110,4 @@ vim.keymap.set('v', '>', '>gv')
 
 -- highlights under cursor
 vim.keymap.set('n', '<leader>ui', vim.show_pos, { desc = 'Inspect Pos' })
-vim.keymap.set("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
+vim.keymap.set('n', '<leader>uI', '<cmd>InspectTree<cr>', { desc = 'Inspect Tree' })
